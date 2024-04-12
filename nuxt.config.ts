@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   extends: [
-    './base',
-    './admin',
-    './cms',
+    './layers/base',
+    './layers/admin',
+    './layers/cms',
   ],
 })
