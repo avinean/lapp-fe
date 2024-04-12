@@ -4,7 +4,7 @@ const slug = ref(route.params.slug.toString())
 </script>
 
 <template>
-  <div>
+  <div class="space-y-4">
     <CmsSection :key="slug" :slug="slug" />
   </div>
 </template>
