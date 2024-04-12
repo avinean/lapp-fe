@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const route = useRoute()
-console.log(route.params)
-const slug = ref(route.params.slug.toString() || 'index')
+const slug = ref(route.params.slug.toString())
 </script>
 
 <template>

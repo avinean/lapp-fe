@@ -46,14 +46,24 @@ export interface CarouselSection {
   type: 'carousel'
   columns: {
     [S in Sizes]: 1 | 2 | 3 | 4 | 5 | 6
-  },
-  arrows: boolean,
-  autoplay: boolean,
-  duration: number,
+  }
+  arrows: boolean
+  autoplay: boolean
+  duration: number
   groups: CmsSection[][]
 }
 
-export type CmsSection = TextSection | ImageSection | GridSection | CardSection | ContactsSection | CallSection | GroupSection | CarouselSection
+export interface NavigationItem {
+  to: string
+  label: string
+  children?: NavigationItem[]
+}
+export interface HeaderNavigationSection {
+  type: 'headerNavigation'
+  items: string
+}
+
+export type CmsSection = TextSection | ImageSection | GridSection | CardSection | ContactsSection | CallSection | GroupSection | CarouselSection | HeaderNavigationSection
 
 export interface CmsEntity {
   id: number

@@ -1,5 +1,5 @@
 <template>
   <div>
-    <CmsSection key="index" slug="index" />
+    <CmsSection key="indeks" slug="indeks" />
   </div>
 </template>

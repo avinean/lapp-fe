@@ -79,6 +79,8 @@ function addSection(type: CmsSection['type']) {
     emit('update', [...props.sections, { type: 'contacts' }])
   if (type === 'call')
     emit('update', [...props.sections, { type: 'call' }])
+  if (type === 'headerNavigation')
+    emit('update', [...props.sections, { type: 'headerNavigation', items: '' }])
 }
 
 function duplicateSection(section: CmsSection) {
@@ -191,6 +193,12 @@ const menu = [
       icon: 'i-heroicons-presentation-chart-bar-16-solid',
       click: () => addSection('carousel'),
     },
+    {
+      type: 'headerNavigation',
+      label: 'Навігація хедера',
+      icon: 'i-heroicons-globe-asia-australia-16-solid',
+      click: () => addSection('headerNavigation'),
+    },
   ] as {
     type: CmsSection['type']
     label: string
@@ -217,6 +225,7 @@ const menu = [
           <UBadge v-else-if="section.type === 'contacts'" label="Контакти" />
           <UBadge v-else-if="section.type === 'call'" label="Форма зворотнього звʼязку" />
           <UBadge v-else-if="section.type === 'carousel'" label="Карусель" />
+          <UBadge v-else-if="section.type === 'headerNavigation'" label="Навігація хедера" />
 
           <UButtonGroup>
             <UTooltip text="Створити дублікат">
@@ -412,6 +421,9 @@ const menu = [
       </div>
       <div v-else-if="section.type === 'call'">
         <CmsCall />
+      </div>
+      <div v-else-if="section.type === 'headerNavigation'">
+        <UTextarea v-model="section.items" autoresize />
       </div>
     </div>
     <UDivider v-if="single ? sections.length !== 1 : true">
