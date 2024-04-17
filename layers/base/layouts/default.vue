@@ -44,7 +44,7 @@ const yearString = startYear === currentYear ? currentYear : `${startYear}-${cur
             @click="menuOpen = !menuOpen"
           >
             <template v-for="link, key in global.navigation?.navigation" :key>
-              <UDropdown v-if="link.children?.length" :items="[link.children]" mode="hover" :popper="{ placement: 'bottom-start' }">
+              <UDropdown v-if="link.children?.length" :items="[link.children] as any" mode="hover" :popper="{ placement: 'bottom-start' }">
                 <ULink :to="link.to" class="p-2" active-class="border-b-2" inactive-class="border-b-2 border-transparent">
                   {{ link.title }}
                 </ULink>
