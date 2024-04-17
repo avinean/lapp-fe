@@ -7,6 +7,5 @@ export default defineNuxtConfig({
   extends: [
     './layers/base',
     './layers/admin',
-    './layers/cms',
-  ],
+  ]
 })

@@ -9,25 +9,25 @@ if (process.client)
 
 <style>
 h1 {
-    @apply text-4xl font-bold mb-4;
+    @apply text-4xl font-bold;
 }
 h2 {
-    @apply text-3xl font-bold mb-4;
+    @apply text-3xl font-bold;
 }
 h3 {
-    @apply text-2xl font-bold mb-4;
+    @apply text-2xl font-bold;
 }
 h4 {
-    @apply text-xl font-bold mb-4;
+    @apply text-xl font-bold;
 }
 h5 {
-    @apply text-lg font-bold mb-4;
+    @apply text-lg font-bold;
 }
 h6 {
-    @apply text-base font-bold mb-4;
+    @apply text-base font-bold;
 }
 p {
-    @apply text-base mb-4;
+    @apply text-base;
 }
 ul.list {
     @apply list-disc pl-5 mb-4 space-y-2;

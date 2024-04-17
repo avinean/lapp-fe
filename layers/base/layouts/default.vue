@@ -16,7 +16,7 @@ const yearString = startYear === currentYear ? currentYear : `${startYear}-${cur
 
 <template>
   <div class="min-h-screen flex flex-col">
-    <div :ref="e => global.headerRef = e" class="border-b bg-white sticky top-0 z-10">
+    <div :ref="e => global.headerRef = e" class="shadow-md bg-white sticky top-0 z-10">
       <div v-if="global.isLoggedIn" class="flex items-center md:justify-between p-2 bg-gray-300">
         <ULink to="/admin" class="flex items-center gap-2">
           <i class="i-heroicons-arrow-left-on-rectangle-20-solid text-2xl text-gray" />
@@ -43,15 +43,28 @@ const yearString = startYear === currentYear ? currentYear : `${startYear}-${cur
             :class="{ 'w-full flex-col items-center': !md }"
             @click="menuOpen = !menuOpen"
           >
-            <CmsSection key="menyu" slug="menyu" />
+            <template v-for="link, key in global.navigation?.navigation" :key>
+              <UDropdown v-if="link.children?.length" :items="[link.children]" mode="hover" :popper="{ placement: 'bottom-start' }">
+                <ULink :to="link.to" class="p-2" active-class="border-b-2" inactive-class="border-b-2 border-transparent">
+                  {{ link.title }}
+                </ULink>
+                <template #item="{ item }">
+                  <ULink :to="item.to">
+                    {{ item.title }}
+                  </ULink>
+                </template>
+              </UDropdown>
+              <ULink v-else :to="link.to" class="p-2" active-class="border-b-2" inactive-class="border-b-2 border-transparent">
+                {{ link.title }}
+              </ULink>
+            </template>
           </nav>
         </transition>
       </header>
     </div>
 
-    <div class="container py-2 mx-auto">
+    <div v-if="global.breadcrumbs?.length" class="container py-2 mx-auto">
       <UBreadcrumb
-        v-if="global.breadcrumbs?.length"
         divider="/"
         :links="[{ label: 'Головна', to: '/' }, ...global.breadcrumbs]"
       />
@@ -67,7 +80,7 @@ const yearString = startYear === currentYear ? currentYear : `${startYear}-${cur
       </div>
     </main>
 
-    <div class="border-t bg-white">
+    <div class="bg-white">
       <div class="container flex flex-col items-center py-4 mx-auto">
         <ULink to="/" class="h-24 w-24 mx-auto">
           <CmsSection slug="logo" />

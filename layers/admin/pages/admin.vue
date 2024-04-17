@@ -18,6 +18,10 @@ definePageMeta({
           to: `/admin/contacts`,
         },
         {
+          label: 'Сторінки',
+          to: '/admin/pages',
+        },
+        {
           label: 'CMS',
           to: '/admin/cms',
         },

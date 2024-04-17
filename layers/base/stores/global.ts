@@ -25,8 +25,13 @@ export const useGlobalStore = defineStore('global', () => {
   }
 
   const contactRepository = useContactRepository()
+  const navigationRepository = useNavigationRepository()
   const { data: contacts } = useAsyncData(
     () => contactRepository.get({ statuses: statuses.value.join(',') }),
+    { watch: [statuses] },
+  )
+  const { data: navigation } = useAsyncData(
+    () => navigationRepository.get(),
     { watch: [statuses] },
   )
 
@@ -36,6 +41,7 @@ export const useGlobalStore = defineStore('global', () => {
     isPreview,
     statuses,
     contacts,
+    navigation,
     headerRef,
     breadcrumbs,
   }
