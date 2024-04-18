@@ -25,3 +25,12 @@ export type QuizEntity = {
     src: string
   }
 }
+
+export type QuizContent = {
+  question: QuizEntity
+  multiple?: boolean
+  answers: {
+    answer: QuizEntity
+    correct: boolean
+  }[]
+}[]

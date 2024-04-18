@@ -1,5 +1,5 @@
 import type { Sizes } from './ds'
-import type { BrandType, VisibilityStatus } from './enums'
+import type { AppType, BrandType, VisibilityStatus } from './enums'
 
 export interface BrandEntity {
   id: number
@@ -128,4 +128,13 @@ export interface TelegramEntity {
   userIds: string
   link: string
   categories: CategoryEntity[]
+}
+
+export interface AppsEntity<T> {
+  id?: string
+  title: string
+  description: string
+  type: AppType
+  content: T
+  creator: string
 }

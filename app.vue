@@ -5,6 +5,10 @@ if (process.client)
 
 <template>
   <NuxtLayout />
+    <ClientOnly>
+      <UNotifications />
+      <AdminModal />
+    </ClientOnly>
 </template>
 
 <style>

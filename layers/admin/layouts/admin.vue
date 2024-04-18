@@ -8,9 +8,5 @@
     <main class="flex-1 p-2">
       <NuxtPage />
     </main>
-    <UNotifications />
-    <ClientOnly>
-      <AdminModal />
-    </ClientOnly>
   </div>
 </template>

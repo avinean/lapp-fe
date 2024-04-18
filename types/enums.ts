@@ -9,3 +9,7 @@ export enum BrandType {
   Product = 'product',
   Material = 'material',
 }
+
+export enum AppType {
+  Quiz = 'quiz',
+}
