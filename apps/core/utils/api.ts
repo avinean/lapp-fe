@@ -9,5 +9,5 @@ export function $api<T>(url: string, opts?: FetchOptions) {
   }
 
   console.log('fetching', `[${opts?.method || 'GET'}]`, url)
-  return $fetch<T>(`/api${url}`, { ...opts, headers } as any)
+  return $fetch<T>(`/mapi${url}`, { ...opts, headers } as any)
 }

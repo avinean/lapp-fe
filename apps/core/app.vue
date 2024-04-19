@@ -1,6 +1,8 @@
 <script setup lang="ts">
 if (process.client)
   localStorage.removeItem('nuxt-color-mode')
+
+$fetch('/api/test')
 </script>
 
 <template>

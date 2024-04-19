@@ -1,7 +1,7 @@
 import type { NuxtConfig } from 'nuxt/schema'
 
 export default {
-  '/api/**': {
+  '/mapi/**': {
     proxy: `${process.env.API_BASE_URL}/api/**`,
   },
   '/uploads/**': {

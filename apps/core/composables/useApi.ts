@@ -4,7 +4,7 @@ import type { FetchOptions } from 'ohmyfetch'
 export function useApi<T>(url: string, opts?: FetchOptions, apiOptions?: AsyncDataOptions<T>) {
   return useAsyncData(
     url,
-    () => $api<T>(url, opts),
+    () => $api<T>(url, opts) as Promise<T>,
     apiOptions,
   )
 }
