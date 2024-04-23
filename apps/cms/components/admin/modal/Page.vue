@@ -168,7 +168,7 @@ async function onCreateOrUpdate() {
       </UTable>
     </UFormGroup>
     <UFormGroup label="Секція" name="section">
-      <USelect v-if="data" v-model="state.section" :options="data" value-attribute="id" option-attribute="title" />
+      <USelectMenu v-if="data" v-model="state.section" :options="data" option-attribute="title" />
     </UFormGroup>
 
     <div class="flex justify-end">

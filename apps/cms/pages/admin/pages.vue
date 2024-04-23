@@ -28,7 +28,6 @@ const navigation = ref<NavigationEntity['navigation'][number]>({
 function addNavigation() {
   if (!navigations.value || !navigation.value.title || !navigation.value.to)
     return
-
   navigations.value.navigation.push(navigation.value)
   navigation.value = { title: '', to: '', order: 0 }
   saveNavigation()
